@@ -1,0 +1,99 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: czz
+  Date: 2019/9/28
+  Time: 16:45
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网站后台管理系统</title>
+    <meta charset="GB2312">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <script src="static/third_part/jquery/jquery-3.4.1.min.js"></script>
+    <script src="static/third_part/vue-2.6.10/vue.min.js"></script>
+    <script src="static/third_part/vue-resource-0.9.3/dist/vue-resource.min.js"></script>
+
+    <!--可无视-->
+    <link rel="stylesheet" href="static/third_part/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <!--主要样式-->
+    <link type="text/css" href="static/css/style.css" rel="stylesheet" />
+
+    <script>
+        if(self!=top)
+        {
+            parent.location.href='index.html';
+        }
+        var vm = new Vue({
+            el: '#app',
+            mounted: function () {
+                var self = this;
+                console.log(self.user.username)
+            },
+            data:{
+                showCtrl:{
+                    showTb:'block',
+                    showEdit:''
+                },
+                user:{
+                    username:'',
+                    passwd:''
+                }
+            },
+            methods: {
+                //加载路由
+                login1: function () {
+
+                }
+            }
+        });
+        function login(obj){
+            var uname = $('#uname').val();
+            var passwd = $('#passwd').val();
+            var data = {
+                userName:uname,
+                password:passwd
+            }
+            Vue.http.post('jdwa/user/auth',data).then(function (res) {
+                alert("3333!")
+                window.location.href = "static/html/user.html";
+            }, function (res) {
+                alert("4444!")
+            });
+            return true;
+        }
+    </script>
+
+
+</head>
+<body>
+
+<div id="app" class="container" align="center">
+    <div class="col-md-6" style="margin-top: 20%;margin-left: 28%">
+        <div class="inset">
+            <div name="login" id="login" onsubmit="return login1()">
+                <input type="hidden" name="enews" value="login">
+                <div>
+                    <h2>学生管理系统</h2>
+                    <span style="text-align: left;text-indent: 0.4em;"><label>用户名</label></span>
+                    <span><input type="text" name="userName" id="uname" class="textbox" ></span>
+                </div>
+                <div>
+                    <span style="text-align: left;text-indent: 0.4em;"><label>密码</label></span>
+                    <span><input  name="password" type="password" id="passwd" class="password"></span>
+                </div>
+                <div class="sign">
+                    <button type="button" class="btn btn-primary" onclick="login()">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
