@@ -86,9 +86,9 @@
 		<div class="sidebar-scroll">
 			<nav>
 				<ul class="nav">
-					<li><a href="index.html" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-					<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
-					<li><a href="charts.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+					<li><a href="main.html" class="active"><i class="lnr lnr-home"></i> <span>User List</span></a></li>
+					<li><a href="happy_birthday1.html" class=""><i class="lnr lnr-code"></i> <span>Happy Birthday</span></a></li>
+					<li><a href="fireworks.html" class=""><i class="lnr lnr-chart-bars"></i> <span>Fireworks</span></a></li>
 					<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 					<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
 					<li>
@@ -181,6 +181,14 @@
             title: '用户名',
             sortable: true
         }, {
+            field: 'password',
+            title: '密码',
+            sortable: true
+		},{
+            field: 'name',
+            title: '姓名',
+            sortable: true
+		},{
             field: 'email',
             title: '电子邮箱',
             sortable: true
@@ -188,7 +196,11 @@
             field: 'mobile',
             title: '手机号',
             sortable: true
-        }
+        },{
+            field: 'desc',
+            title: '描述',
+            sortable: true
+		}
     ];
 
     var vm = new Vue({

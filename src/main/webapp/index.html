@@ -1,15 +1,11 @@
-<!--
-  Created by IntelliJ IDEA.
-  User: czz
-  Date: 2019/9/28
-  Time: 16:45
-  To change this template use File | Settings | File Templates.
--->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>网站后台管理系统</title>
+    <title>小平台</title>
     <meta charset="GB2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<meta charset="GB2312">-->
     <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <script src="static/third_part/jquery/jquery-3.4.1.min.js"></script>
@@ -58,10 +54,9 @@
                 password:passwd
             }
             Vue.http.post('jdwa/user/auth',data).then(function (res) {
-                alert("3333!")
-                window.location.href = "html/main/user.html";
+                window.location.href = "html/main/main.html";
             }, function (res) {
-                alert("4444!")
+                alert("ERROR!")
             });
             return true;
         }
