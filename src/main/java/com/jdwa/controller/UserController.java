@@ -24,10 +24,23 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/list")
-    public @ResponseBody List<User> findAllUsers(HttpSession session){
-        System.out.println("122121");
-        System.out.println(session.getAttribute("currentUser"));
-        return userService.findAllUsers();
+    public @ResponseBody List<User> findAllUsers(HttpSession session) throws Exception{
+        User user = (User) session.getAttribute("currentUser");
+//        System.out.println(session.getAttribute("currentUser"));
+        if (user == null){
+            throw new Exception("请登陆后查看");
+        }
+        List<User> users =  userService.findAllUsers();
+        String uname = user.getUserName();
+        for (User usr:users){
+            if ("czz".equals(uname)){
+                continue;
+            }
+            if (!uname.equals(usr.getUserName())){
+                usr.setPassword("****");
+            }
+        }
+        return users;
     }
 
     @RequestMapping(value = "/auth",method = RequestMethod.POST)
