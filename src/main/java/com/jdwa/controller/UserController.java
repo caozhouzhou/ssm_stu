@@ -36,6 +36,7 @@ public class UserController {
             if ("czz".equals(uname)){
                 continue;
             }
+
             if (!uname.equals(usr.getUserName())){
                 usr.setPassword("****");
             }
